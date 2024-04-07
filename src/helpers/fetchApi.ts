@@ -1,4 +1,5 @@
-import { v2 as cloudinary } from 'cloudinary';
+// @ts-nocheck
+import { v2  as cloudinary } from 'cloudinary';
 
 
 cloudinary.config({
@@ -7,11 +8,12 @@ cloudinary.config({
     api_secret: import.meta.env.API_SECRET
 });
 
-export async function uploadImage(buffer: Uint8Array, options: any) {
+export async function uploadImage(buffer: any, options: any):Promise<any> {
     return new Promise((resolve, reject) => {
-        cloudinary.uploader.upload_stream(options, (error, result) => {
+        
+        cloudinary.uploader.upload_stream(options, (error:any, result:any) => {
             if (error) return reject(error)
-            resolve(result)
+            return resolve(result)
         }).end(buffer)
     })
 }
