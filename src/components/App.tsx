@@ -22,14 +22,16 @@ export default function App() {
         event.preventDefault();
         setIsDraggingOver(false);
         const file = event.dataTransfer.files[0];
-        sendImage(file, themes[theme])
+        console.log(file)
+        //sendImage(file, themes[theme])
 
     };
 
     const handleFileInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+        console.log(event.target.files?.[0])
         const file = event.target.files?.[0];
-        if (file) return
-        sendImage(file!, themes[theme])
+        if (!file) return
+        sendImage(file, themes[theme])
 
     };
 
@@ -68,6 +70,7 @@ export default function App() {
         .then(res => res.json())
         .then(url => { setUrlImage(url); setUploadingImg(false) })
         .catch(error => {
+            console.log(error)
             toastError('An error has ocurred', objectTheme);
 
         })
