@@ -1,0 +1,61 @@
+.animate-load {
+
+    animation: moveLeftRight 3s infinite linear;
+    /*  animation: moveLeftRight 4s linear infinite; */
+}
+
+@keyframes moveLeftRight {
+    /* Uso el 84% es porque :display: 
+        -El div con el atributo data-container-loader para abreviar lo llamaremos cl
+        -El div con el atributo data-loader l
+        -cl tiene un width de 100k o 100%
+        -l tiene 2/12 de 100k que es igual a 50k/3
+        -Como el translate usa el width de l tenemos que multiplicarlo por una cantidad para que de el tamaño de
+        cl pero en porcentaje
+        100k*(2/12)=100%*(2/12)
+        50k/3=50%/3
+
+    ;*/
+    0% {
+        transform: translateX(calc(-84%));
+    }
+
+    100% {
+        transform: translateX(calc(84%*8));
+    }
+
+    /* 0% {
+    transform: translateX(-calc(84%*6));
+    opacity: 1;
+  }
+  25% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(calc(84%*6));
+  } */
+
+    /* 0%, 16%,25% {
+    transform: translateX(calc(-84%*6));
+    opacity: 0;
+  }
+  30%, 50% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  55%,75%, 100% {
+    transform: translateX(calc(84%*6));
+    opacity: 0;
+  } */
+
+
+}
+
+
+/* HTML: <div class="loader"></div> */
+
+/* HTML: <div class="loader"></div> */
+
+
+  /* HTML: <div class="loader"></div> */
